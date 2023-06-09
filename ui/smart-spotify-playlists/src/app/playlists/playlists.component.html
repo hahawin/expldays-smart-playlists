@@ -1,0 +1,18 @@
+<p>playlists works!</p>
+<button mat-raised-button color="primary" (click)="getPlaylists()">Show playlists</button>
+
+<!-- <ng-container *ngIf="selected_playlists.selectedOptions.selected.length > 1">
+    <mat-form-field>
+        <mat-label>Input</mat-label>
+        <input matInput>
+    </mat-form-field>
+    <button color="primary" (click)="mergePlaylists(selected_playlists.selectedOptions.selected)">Merge selected playlists</button>
+</ng-container> -->
+
+<mat-selection-list #list [(ngModel)]="selectedPlayLists" [compareWith]="compareFunction">
+    <ng-container *ngFor="let playlist of playLists | async">
+        <mat-list-option [value]="playlist">{{playlist.name}}</mat-list-option>
+        <mat-divider></mat-divider>
+    </ng-container>
+
+</mat-selection-list>
