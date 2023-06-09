@@ -13,7 +13,7 @@ mergePlaylists() {
   this.playlistService.mergePlaylists(this.selectedPlayLists.map(playlist => playlist.), "newPlayList")
 }
 
-  playLists: Observable<Playlist[]> = new Observable(); 
+  playLists: Observable<Playlist[]> = new Observable();
   selectedPlayLists : Playlist[] = [];
   compareFunction = (o1: any, o2: any)=> o1.id===o2.id;
 
