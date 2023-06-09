@@ -1,11 +1,9 @@
 package com.cegeka.smartspotifyplaylists;
 
 import com.cegeka.smartspotifyplaylists.domain.Playlist;
+import com.cegeka.smartspotifyplaylists.dtos.MergePlaylistsDTO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
@@ -24,5 +22,10 @@ public class PlaylistController {
     @GetMapping()
     public Mono<List<Playlist>> getPlaylists() {
         return spotifyClient.getPlaylists();
+    }
+
+    @PostMapping
+    public void mergePlaylists(@RequestBody MergePlaylistsDTO mergePlaylistsDTO) {
+
     }
 }

@@ -13,7 +13,7 @@ mergePlaylists(playlists: Playlist[]) {
 throw new Error('Method not implemented.');
 }
 
-  playLists: Observable<Playlist[]> = new Observable(); 
+  playLists: Observable<Playlist[]> = new Observable();
   selectedPlayLists = [];
   compareFunction = (o1: any, o2: any)=> o1.id===o2.id;
 
@@ -24,5 +24,8 @@ throw new Error('Method not implemented.');
     this.playLists = this.playlistService.getPlaylists()
   }
 
+  getActivePlaylists() {
+    console.log(this.selectedPlayLists)
+  }
 
 }
