@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -59,6 +60,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PlaylistsComponent
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     MatButtonModule,
@@ -68,9 +71,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatFormFieldModule,
     MatSelectModule,
-    FormsModule,
-    ReactiveFormsModule,],
-  exports: [
     A11yModule,
     CdkStepperModule,
     CdkTableModule,
@@ -113,7 +113,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatTreeModule,
     PortalModule,
     ScrollingModule,
-  ],
+  ] ,
   providers: [],
   bootstrap: [AppComponent]
 })

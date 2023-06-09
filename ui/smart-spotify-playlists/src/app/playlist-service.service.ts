@@ -13,4 +13,8 @@ export class PlaylistService {
   getPlaylists() : Observable<Playlist[]> {
     return this.http.get<Playlist[]>('http://localhost:8080/playlists')
   }
+
+  mergePlaylists(ids: String[], name: String) : Observable<any> {
+    return this.http.post<any>('http://localhost:8080/playlists', {idsPlaylistsToMerge: ids, titleMergedPlaylist: name})
+  }
 }

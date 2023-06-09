@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, Subscriber } from 'rxjs';
 import { Playlist } from '../domain/playlist';
 import { PlaylistService } from '../playlist-service.service';
 
@@ -9,12 +9,12 @@ import { PlaylistService } from '../playlist-service.service';
   styleUrls: ['./playlists.component.css']
 })
 export class PlaylistsComponent {
-mergePlaylists(playlists: Playlist[]) {
-throw new Error('Method not implemented.');
+mergePlaylists() {
+  this.playlistService.mergePlaylists(this.selectedPlayLists.map(playlist => playlist.), "newPlayList")
 }
 
   playLists: Observable<Playlist[]> = new Observable(); 
-  selectedPlayLists = [];
+  selectedPlayLists : Playlist[] = [];
   compareFunction = (o1: any, o2: any)=> o1.id===o2.id;
 
   constructor( private playlistService : PlaylistService) {}
