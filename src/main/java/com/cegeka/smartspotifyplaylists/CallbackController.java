@@ -28,14 +28,6 @@ public class CallbackController {
         WebClient webClient = WebClient.create();
 
         return spotifyClient.getAccessTokenWithAuthorizationCode(code)
-                .doOnNext(accessToken ->
-                        webClient.get()
-                                .uri("https://api.spotify.com/v1/artists/4Z8W4fKeB5YxbusRsdQVPb")
-                                .header ("Authorization", String.format("Bearer %s", accessToken.accessToken()))
-                                .retrieve()
-                                .bodyToMono(String.class)
-                                .subscribe(System.out::printf)
-                        )
                 .doOnNext(accessToken -> userState.setAccessToken(accessToken))
                 .map(accessToken -> String.format("{\"code\":\"%s\", \"state\":\"%s\", \"token\": \"%s\"}", code, state, accessToken));
 

@@ -9,15 +9,18 @@ import { PlaylistService } from '../playlist-service.service';
   styleUrls: ['./playlists.component.css']
 })
 export class PlaylistsComponent {
-mergePlaylists() {
-  this.playlistService.mergePlaylists(this.selectedPlayLists.map(playlist => playlist.), "newPlayList")
-}
+  mergePlaylists() {
+
+    this.playlistService.mergePlaylists(this.selectedPlayLists.map(playlist => playlist.id), this.newPlayListName)
+    .subscribe()
+  }
 
   playLists: Observable<Playlist[]> = new Observable();
-  selectedPlayLists : Playlist[] = [];
-  compareFunction = (o1: any, o2: any)=> o1.id===o2.id;
+  newPlayListName: String = "New Playlist"
+  selectedPlayLists: Playlist[] = [];
+  compareFunction = (o1: any, o2: any) => o1.id === o2.id;
 
-  constructor( private playlistService : PlaylistService) {}
+  constructor(private playlistService: PlaylistService) { }
 
   getPlaylists() {
     console.log('playlists')

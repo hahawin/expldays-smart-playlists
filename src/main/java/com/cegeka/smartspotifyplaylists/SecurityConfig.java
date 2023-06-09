@@ -32,6 +32,7 @@ public class SecurityConfig {
                     )
                     .httpBasic(withDefaults())
                     .formLogin(withDefaults());
+            http.csrf(csrfSpec -> csrfSpec.disable());
             return http.build();
         }
 
